@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSP profit calculator</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon"
+          type="image/png"
+          href="images/pigfish.png">
+</head>
+<body>
+<section class="container">
+    <h2>PigFish's SSP calculator <a href="https://youtu.be/yXHZ-oC-2cE" class="tutorialLink" target="_blank">Tutorial</a></h2>
+    <h4 id="noPrice">No price set: </h4>
+    <div class="resultDiv">
+        <div class="topDiv">
+            <img src="images/ssp.png">
+            <a id="sspAmount">= 0</a>
+        </div>
+        <button id="calculateBtn">Calculate</button>
+        <div class="topDiv">
+            <img src="images/worldlock.png">
+            <a id="wlAmount">= 0</a>
+        </div>
+
+    </div>
+
+<!--    too lazy to figure out how to host a website, so doing it in a html file it is. so no loops to be found :C-->
+    <section class="seeds">
+        <div class="seed">
+            <div>
+                <img src="images/cavecolumn.png">
+                <input type="number" id="amtCaveColumn" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceCaveColumn">Price: </label>
+                <input type="number" id="priceCaveColumn" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/door.png">
+                <input type="number" id="amtDoor" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceDoor">Price: </label>
+                <input type="number" id="priceDoor" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/glasspane.png">
+                <input type="number" id="amtGlassPane" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGlassPane">Price: </label>
+                <input type="number" id="priceGlassPane" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/grass.png">
+                <input type="number" id="amtGrass" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceGrass" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/lavarock.png">
+                <input type="number" id="amtLavaRock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceLavaRock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/martiantree.png">
+                <input type="number" id="amtMartianTree" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceMartianTree" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sign.png">
+                <input type="number" id="amtSign" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/woodblock.png">
+                <input type="number" id="amtWoodBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWoodBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/amberglass.png">
+                <input type="number" id="amtAmberGlass" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceAmberGlass" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/bricks.png">
+                <input type="number" id="amtBricks" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBricks" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/crappysign.png">
+                <input type="number" id="amtCrappySign" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceCrappySign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/daisy.png">
+                <input type="number" id="amtDaisy" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDaisy" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/happyjoy.png">
+                <input type="number" id="amtHappyJoy" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceHappyJoy" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/mushroom.png">
+                <input type="number" id="amtMushroom" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceMushroom" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/rockbackgroundd.png">
+                <input type="number" id="amtRockBackground" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRockBackground" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/rose.png">
+                <input type="number" id="amtRose" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRose" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/supercrate.png">
+                <input type="number" id="amtSuperCrate" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceSuperCrate" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/terracotta.png">
+                <input type="number" id="amtTerracotta" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceTerracotta" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/torch.png">
+                <input type="number" id="amtTorch" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceTorch" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/wheat.png">
+                <input type="number" id="amtWheat" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWheat" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/blackblock.png">
+                <input type="number" id="amtBlackBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBlackBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/brownblock.png">
+                <input type="number" id="amtBrownBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBrownBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/cliffside.png">
+                <input type="number" id="amtCliffSide" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceCliffSide" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/greyblock.png">
+                <input type="number" id="amtGreyBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceGreyBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/miniblocks.png">
+                <input type="number" id="amtMiniBlocks" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceMiniBlocks" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/mudglob.png">
+                <input type="number" id="amtMudGlob" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceMudGlob" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/pointysign.png">
+                <input type="number" id="amtPointySign" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="pricePointySign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/redblock.png">
+                <input type="number" id="amtRedBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRedBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/woodenbackground.png">
+                <input type="number" id="amtWoodBackground" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWoodBackground" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/woodenplatform.png">
+                <input type="number" id="amtWoodenPlat" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWoodenPlat" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/aquablock.png">
+                <input type="number" id="amtAquaBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceAquaBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dangersign.png">
+                <input type="number" id="amtDangerSign" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDangerSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/evilbricks.png">
+                <input type="number" id="amtEvilBricks" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceEvilBricks" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/greenblock.png">
+                <input type="number" id="amtGreenBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceGreenBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/rockplatform.png">
+                <input type="number" id="amtRockPlatform" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRockPlatform" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/stonewall.png">
+                <input type="number" id="amtStoneWall" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceStoneWall" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/poppy.png">
+                <input type="number" id="amtPoppy" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="pricePoppy" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/whiteblock.png">
+                <input type="number" id="amtWhiteBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWhiteBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/window.png">
+                <input type="number" id="amtWindow" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWindow" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/woodentable.png">
+                <input type="number" id="amtWoodenTable" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWoodenTable" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/yellowblock.png">
+                <input type="number" id="amtYellowBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceYellowBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/barnblock.png">
+                <input type="number" id="amtBarnBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBarnBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/brickbackground.png">
+                <input type="number" id="amtBrickBackground" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBrickBackground" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/caveplay.png">
+                <input type="number" id="amtCavePlatform" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceCavePlatform" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/flowerywallpaper.png">
+                <input type="number" id="amtFloweryWallpaper" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceFloweryWallpaper" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/glassblock.png">
+                <input type="number" id="amtGlassBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceGlassBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/grimstone.png">
+                <input type="number" id="amtGrimstone" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceGrimstone" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/redbricks.png">
+                <input type="number" id="amtRedBricks" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRedBricks" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/toilet.png">
+                <input type="number" id="amtToilet" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceToilet" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/deathspikes.png">
+                <input type="number" id="amtDeathSpikes" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDeathSpikes" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dungeondoor.png">
+                <input type="number" id="amtDungeonDoor" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDungeonDoor" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/pencil.png">
+                <input type="number" id="amtPencil" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="pricePencil" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/redwwall.png">
+                <input type="number" id="amtRedWoodWall" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRedWoodWall" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/barndoor.png">
+                <input type="number" id="amtBarnDoor" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBarnDoor" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/bush.png">
+                <input type="number" id="amtBush" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBush" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/devilhorns.png">
+                <input type="number" id="amtDevilHorns" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDevilHorns" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/exclamationsign.png">
+                <input type="number" id="amtExclamationSign" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceExclamationSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/organgeblock.png">
+                <input type="number" id="amtOrangeBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceOrangeBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/runecarved.png">
+                <input type="number" id="amtRuneCarvedStonePillar" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceRuneCarvedStonePillar" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmblank.png">
+                <input type="number" id="amtSheetmBlank" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceSheetmBlank" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/stalactite.png">
+                <input type="number" id="amtStalactite" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceStalactite" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/stalagmite.png">
+                <input type="number" id="amtStalagmite" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceStalagmite" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/texaslimestone.png">
+                <input type="number" id="amtTexasLimestone" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceTexasLimestone" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dwarvencolumn.png">
+                <input type="number" id="amtDwarvenColumn" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDwarvenColumn" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/houseentrance.png">
+                <input type="number" id="amtHouseEntrance" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceHouseEntrance" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dinkduck.png">
+                <input type="number" id="amtDinkDuck" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDinkDuck" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/yerfdog.png">
+                <input type="number" id="amtYerfDog" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceYerfDog" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/stripeywallpaper.png">
+                <input type="number" id="amtStripeyWallpaper" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceStripeyWallpaper" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/woodenwindow.png">
+                <input type="number" id="amtWoodenWindow" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceWoodenWindow" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/barrel.png">
+                <input type="number" id="amtBarrel" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceBarrel" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/checkerwallpaper.png">
+                <input type="number" id="amtCheckerWallpaper" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceCheckerWallpaper" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/darkbrownblock.png">
+                <input type="number" id="amtDarkBrownBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label for="priceGrass">Price: </label>
+                <input type="number" id="priceDarkBrownBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/darkgreyblock.png">
+                <input type="number" id="amtDarkGreyBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDarkGreyBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/darkredblock.png">
+                <input type="number" id="amtDarkRedBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDarkRedBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/rglass.png">
+                <input type="number" id="amtRedGlassBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceRedGlassBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sidewalk.png">
+                <input type="number" id="amtSidewalk" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSidewalk" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/tenement.png">
+                <input type="number" id="amtTenementBuilding" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceTenementBuilding" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/tomato.png">
+                <input type="number" id="amtTomato" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceTomato" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/windowcurtains.png">
+                <input type="number" id="amtWindowCurtains" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceWindowCurtains" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/woodenchair.png">
+                <input type="number" id="amtWoodenChair" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceWoodenChair" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/blueberry.png">
+                <input type="number" id="amtBlueberry" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBlueberry" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/daquablock.png">
+                <input type="number" id="amtDarkAquaBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDarkAquaBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dgreenblock.png">
+                <input type="number" id="amtDarkGreenBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDarkGreenBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/romanticbush.png">
+                <input type="number" id="amtRomanticBush" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceRomanticBush" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/staircase.png">
+                <input type="number" id="amtStaircase" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceStaircase" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/wetness.png">
+                <input type="number" id="amtWaterBucket" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceWaterBucket" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/westernbuilding.png">
+                <input type="number" id="amtWesternBuilding" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceWesternBuilding" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/bathtub.png">
+                <input type="number" id="amtBathtub" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBathtub" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/downarrow.png">
+                <input type="number" id="amtBigOldDownArrow" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBigOldDownArrow" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sidewaysarrow.png">
+                <input type="number" id="amtBigOldSidewaysArrow" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBigOldSidewaysArrow" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dyellowblock.png">
+                <input type="number" id="amtDarkYellowBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDarkYellowBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/drumsface.png">
+                <input type="number" id="amtSheetmDrums" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmDrums" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/tigerblock.png">
+                <input type="number" id="amtTigerBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceTigerBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/twistedspikes.png">
+                <input type="number" id="amtTwistedSpikes" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceTwistedSpikes" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/bed.png">
+                <input type="number" id="amtBed" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBed" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/biohazardsign.png">
+                <input type="number" id="amtBiohazardSign" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBiohazardSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/bubblewrap.png">
+                <input type="number" id="amtBubbleWrap" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBubbleWrap" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dresser.png">
+                <input type="number" id="amtDresser" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDresser" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/saloondoors.png">
+                <input type="number" id="amtSaloonDoors" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSaloonDoors" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmpiano.png">
+                <input type="number" id="amtSheetmPiano" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmPiano" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/vineyblock.png">
+                <input type="number" id="amtVineyBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceVineyBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/vineypaper.png">
+                <input type="number" id="amtVineyWallpaper" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceVineyWallpaper" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/westernbanner.png">
+                <input type="number" id="amtWesternBanner" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceWesternBanner" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/airduct.png">
+                <input type="number" id="amtAirDuct" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceAirDuct" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/blueblock.png">
+                <input type="number" id="amtBlueBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBlueBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/latticebackground.png">
+                <input type="number" id="amtLatticeBackground" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceLatticeBackground" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/oldetimey.png">
+                <input type="number" id="amtOldeTimeyRadio" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceOldeTimeyRadio" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/orange.png">
+                <input type="number" id="amtOrange" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceOrange" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/polkadot.png">
+                <input type="number" id="amtPolkaDotBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="pricePolkaDotBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/secretpassage.png">
+                <input type="number" id="amtSecretPassage" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSecretPassage" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatpiano.png">
+                <input type="number" id="amtSheetmFlatPiano" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatPiano" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmSaxNote.png">
+                <input type="number" id="amtSheetmSaxNote" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmSaxNote" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/streetsign.png">
+                <input type="number" id="amtStreetSign" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceStreetSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/tangram.png">
+                <input type="number" id="amtTangram" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceTangram" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/darkorangeblock.png">
+                <input type="number" id="amtDarkOrangeBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDarkOrangeBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/gargoyle.png">
+                <input type="number" id="amtGargoyle" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceGargoyle" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/portcullis.png">
+                <input type="number" id="amtPortcullis" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="pricePortcullis" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatsac.png">
+                <input type="number" id="amtSheetmFlatSax" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatSax" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/ancientstonegate.png">
+                <input type="number" id="amtAncientStoneGate" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceAncientStoneGate" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/arrowplacard.png">
+                <input type="number" id="amtArrowPlacard" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceArrowPlacard" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/cactus.png">
+                <input type="number" id="amtCactus" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceCactus" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/picketfence.png">
+                <input type="number" id="amtPicketFence" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="pricePicketFence" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/screendoor.png">
+                <input type="number" id="amtScreenDoor" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceScreenDoor" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/bsw.png">
+                <input type="number" id="amtBlueStarWallpaper" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceBlueStarWallpaper" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/cuzcowallmount.png">
+                <input type="number" id="amtCuzcoWallMount" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceCuzcoWallMount" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/dasred.png">
+                <input type="number" id="amtDasRedBalloon" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceDasRedBalloon" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/foliage.png">
+                <input type="number" id="amtFoliage" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceFoliage" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/plumbing.png">
+                <input type="number" id="amtPlumbing" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="pricePlumbing" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/saltblock.png">
+                <input type="number" id="amtSaltBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSaltBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sandstone.png">
+                <input type="number" id="amtSandstone" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSandstone" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/apple.png">
+                <input type="number" id="amtApple" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceApple" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/command.png">
+                <input type="number" id="amtCommand-Move" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceCommand-Move" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/forsale.png">
+                <input type="number" id="amtForSaleSign" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceForSaleSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/icecrust.png">
+                <input type="number" id="amtIceCrustBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceIceCrustBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/purpleblock.png">
+                <input type="number" id="amtPurpleBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="pricePurpleBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatguitar.png">
+                <input type="number" id="amtSheetmFlatElectricGuitar" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatElectricGuitar" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatflute.png">
+                <input type="number" id="amtSheetmFlatFlute" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatFlute" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatlyre.png">
+                <input type="number" id="amtSheetmFlatLyre" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatLyre" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflattrumpet.png">
+                <input type="number" id="amtSheetmFlatMexicanTrumpet" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatMexicanTrumpet" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatspguitar.png">
+                <input type="number" id="amtSheetmFlatSpanishGuitar" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatSpanishGuitar" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/sheetmflatviolin.png">
+                <input type="number" id="amtSheetmFlatViolin" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSheetmFlatViolin" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/outie.png">
+                <input type="number" id="amtOutieBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceOutieBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/rusticfence.png">
+                <input type="number" id="amtRusticFence" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceRusticFence" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/schooldesk.png">
+                <input type="number" id="amtSchoolDesk" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSchoolDesk" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/airvent.png">
+                <input type="number" id="amtAirVent" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceAirVent" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/ancientblock.png">
+                <input type="number" id="amtAncientBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceAncientBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/gemsign.png">
+                <input type="number" id="amtGemSign" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceGemSign" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/seaweed.png">
+                <input type="number" id="amtSeaweed" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSeaweed" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+        <div class="seed">
+            <div>
+                <img src="images/swisscheeseblock.png">
+                <input type="number" id="amtSwissCheeseBlock" placeholder="0">
+            </div>
+
+            <div>
+                <label>Price: </label>
+                <input type="number" id="priceSwissCheeseBlock" placeholder="0">
+                <p>/</p>
+                <img src="images/worldlock.png">
+            </div>
+        </div>
+    </section>
+
+</section>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+<script src="face.js"></script>
+</body>
+</html>
