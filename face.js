@@ -185,7 +185,7 @@ function calcFace (idName) {
 
 
             const exisistingText = $("#noPrice").text();
-            if (exisistingText.includes(" " + idName))
+            if (exisistingText.includes(" " + idName + ", "))
             {
                 const newText = exisistingText.replace(idName+", ", "");    //removes "prices not set" thingy
                 $("#noPrice").text(newText);
@@ -197,7 +197,7 @@ function calcFace (idName) {
                 $(priceId).css("background-color", "red");
                 const exisistingText = $("#noPrice").text();
 
-                if (exisistingText.includes(" " + idName))
+                if (exisistingText.includes(" " + idName + ", "))
                 {
 
                 }else {
@@ -205,7 +205,7 @@ function calcFace (idName) {
                 }
             } else {        //removes "prices not set" thingy if no amount and price
                 const exisistingText = $("#noPrice").text();
-                if (exisistingText.includes(" " + idName))
+                if (exisistingText.includes(" " + idName + ", "))
                 {
                     const newText = exisistingText.replace(idName+", ", "");
                     $("#noPrice").text(newText);
