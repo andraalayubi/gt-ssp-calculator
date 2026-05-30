@@ -17,6 +17,10 @@ function App() {
     return initial;
   });
 
+  const [bulkPrice, setBulkPrice] = useState('1');
+  const [selectedSeeds, setSelectedSeeds] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [results, setResults] = useState({ totalSSP: 0, totalWorldLock: 0, cleanProfit: 0 });
   const [noPriceSeeds, setNoPriceSeeds] = useState([]);
 
@@ -32,6 +36,24 @@ function App() {
       [id]: { ...prev[id], [field]: val }
     }));
     localStorage.setItem(field + id, val);
+  };
+
+  const applyBulkPrice = () => {
+    setSeedValues(prev => {
+      const next = { ...prev };
+      selectedSeeds.forEach(id => {
+        next[id] = { ...next[id], price: bulkPrice };
+        localStorage.setItem('price' + id, bulkPrice);
+      });
+      return next;
+    });
+    setIsModalOpen(false);
+  };
+
+  const toggleSeedSelection = (id) => {
+    setSelectedSeeds(prev => 
+      prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]
+    );
   };
 
   const calculate = () => {
@@ -85,6 +107,7 @@ function App() {
           placeholder="15" 
         />
         <img src="/images/worldlock.png" alt="WL" />
+        <button className="bulkBtn" onClick={() => setIsModalOpen(true)}>Bulk Set Price</button>
       </div>
 
       <div className="resultDiv">
@@ -146,6 +169,35 @@ function App() {
           );
         })}
       </section>
+
+      {isModalOpen && (
+        <div className="modalOverlay" onClick={() => setIsModalOpen(false)}>
+          <div className="modalContent" onClick={e => e.stopPropagation()}>
+            <h3>Bulk Set Price</h3>
+            <div className="modalInputDiv">
+              <label>Price to Apply: </label>
+              <input type="number" value={bulkPrice} onChange={e => setBulkPrice(e.target.value)} />
+            </div>
+            <h4>Select Seeds:</h4>
+            <div className="modalSeedsGrid">
+              {seedsData.map(seed => (
+                <div 
+                  key={seed.id} 
+                  className={`modalSeedItem ${selectedSeeds.includes(seed.id) ? 'selected' : ''}`}
+                  onClick={() => toggleSeedSelection(seed.id)}
+                >
+                  <img src={seed.img} alt={seed.id} />
+                </div>
+              ))}
+            </div>
+            <div className="modalActions">
+              <button onClick={() => setSelectedSeeds(seedsData.map(s => s.id))}>Select All</button>
+              <button onClick={() => setSelectedSeeds([])}>Deselect All</button>
+              <button className="applyBtn" onClick={applyBulkPrice}>Apply Price</button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
