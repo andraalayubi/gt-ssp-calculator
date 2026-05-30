@@ -90,6 +90,7 @@ function App() {
   }, []);
 
   return (
+    <>
     <section className="container">
       <h2>PigFish's SSP calculator <a href="https://youtu.be/yXHZ-oC-2cE" className="tutorialLink" target="_blank" rel="noreferrer">Tutorial</a></h2>
       
@@ -169,36 +170,37 @@ function App() {
           );
         })}
       </section>
+    </section>
 
-      {isModalOpen && (
-        <div className="modalOverlay" onClick={() => setIsModalOpen(false)}>
-          <div className="modalContent" onClick={e => e.stopPropagation()}>
-            <h3>Bulk Set Price</h3>
-            <div className="modalInputDiv">
-              <label>Price to Apply: </label>
-              <input type="number" value={bulkPrice} onChange={e => setBulkPrice(e.target.value)} />
-            </div>
-            <h4>Select Seeds:</h4>
-            <div className="modalSeedsGrid">
-              {seedsData.map(seed => (
-                <div 
-                  key={seed.id} 
-                  className={`modalSeedItem ${selectedSeeds.includes(seed.id) ? 'selected' : ''}`}
-                  onClick={() => toggleSeedSelection(seed.id)}
-                >
-                  <img src={seed.img} alt={seed.id} />
-                </div>
-              ))}
-            </div>
-            <div className="modalActions">
-              <button onClick={() => setSelectedSeeds(seedsData.map(s => s.id))}>Select All</button>
-              <button onClick={() => setSelectedSeeds([])}>Deselect All</button>
-              <button className="applyBtn" onClick={applyBulkPrice}>Apply Price</button>
-            </div>
+    {isModalOpen && (
+      <div className="modalOverlay" onClick={() => setIsModalOpen(false)}>
+        <div className="modalContent" onClick={e => e.stopPropagation()}>
+          <h3>Bulk Set Price</h3>
+          <div className="modalInputDiv">
+            <label>Price to Apply: </label>
+            <input type="number" value={bulkPrice} onChange={e => setBulkPrice(e.target.value)} />
+          </div>
+          <h4>Select Seeds:</h4>
+          <div className="modalSeedsGrid">
+            {seedsData.map(seed => (
+              <div 
+                key={seed.id} 
+                className={`modalSeedItem ${selectedSeeds.includes(seed.id) ? 'selected' : ''}`}
+                onClick={() => toggleSeedSelection(seed.id)}
+              >
+                <img src={seed.img} alt={seed.id} />
+              </div>
+            ))}
+          </div>
+          <div className="modalActions">
+            <button onClick={() => setSelectedSeeds(seedsData.map(s => s.id))}>Select All</button>
+            <button onClick={() => setSelectedSeeds([])}>Deselect All</button>
+            <button className="applyBtn" onClick={applyBulkPrice}>Apply Price</button>
           </div>
         </div>
-      )}
-    </section>
+      </div>
+    )}
+    </>
   );
 }
 
