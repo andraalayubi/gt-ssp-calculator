@@ -99,6 +99,21 @@ section.container {
   background: linear-gradient(135deg, #818cf8, #6366f1, #a78bfa);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+
+/* ===== ADS ===== */
+.ad-container {
+  width: 100%; min-height: 90px;
+  margin-bottom: 24px; text-align: center;
+  background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.ad-container::before {
+  content: "Advertisement"; position: absolute;
+  color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 1px; font-weight: 600; z-index: 0;
+}
+.ad-container ins { position: relative; z-index: 1; width: 100%; height: 100%; }
 .headerLogo { height: 40px; width: auto; filter: drop-shadow(0 2px 8px rgba(99,102,241,0.4)); }
 .subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 16px; }
 .headerActions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }

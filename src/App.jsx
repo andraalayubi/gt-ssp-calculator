@@ -1,6 +1,29 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { seedsData } from './seedsData';
 
+const AdBanner = ({ slot }) => {
+  useEffect(() => {
+    try {
+      if (window.adsbygoogle) {
+        window.adsbygoogle.push({});
+      }
+    } catch (e) {
+      console.error('AdSense error:', e);
+    }
+  }, []);
+
+  return (
+    <div className="ad-container">
+      <ins className="adsbygoogle"
+           style={{ display: 'block' }}
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot={slot}
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  );
+};
+
 function App() {
   const [sspCost, setSspCost] = useState(() => {
     return localStorage.getItem('sspCost') || '15';
@@ -337,6 +360,9 @@ function App() {
             </button>
           </div>
         </div>
+
+        {/* Top Ad Banner */}
+        <AdBanner slot="1234567890" />
 
         {/* Warning banner for unpriced seeds */}
         {results.noPriceSeeds.length > 0 && (
