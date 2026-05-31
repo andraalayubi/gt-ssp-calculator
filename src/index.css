@@ -238,8 +238,26 @@ section.container {
 }
 .filterTab.active .tabCount { background: rgba(99,102,241,0.2); }
 
+.searchFooter {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px; margin-top: 10px;
+}
 .seedCounter {
   font-size: 0.8rem; color: var(--text-dim); padding-left: 2px;
+}
+
+/* Layout Controls */
+.layoutControls { display: flex; align-items: center; gap: 6px; }
+.layoutLabel { font-size: 0.75rem; color: var(--text-dim); margin-right: 4px; }
+.layoutBtn {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-muted); padding: 4px 10px; border-radius: 6px;
+  cursor: pointer; transition: all 0.2s; font-size: 0.75rem; font-weight: 600;
+}
+.layoutBtn:hover { background: var(--surface-hover); color: var(--text); }
+.layoutBtn.active {
+  background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4);
+  color: #818cf8;
 }
 
 /* ===== SEEDS GRID ===== */
@@ -248,6 +266,10 @@ section.seeds {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 12px; width: 100%;
 }
+section.seeds.layout-1 { grid-template-columns: repeat(1, 1fr); }
+section.seeds.layout-2 { grid-template-columns: repeat(2, 1fr); }
+section.seeds.layout-3 { grid-template-columns: repeat(3, 1fr); }
+section.seeds.layout-5 { grid-template-columns: repeat(5, 1fr); }
 .emptyState {
   grid-column: 1 / -1; text-align: center;
   padding: 60px 20px; color: var(--text-dim);
@@ -620,7 +642,7 @@ div.seed.seed--trash .seedName { opacity: 0.5; text-decoration: line-through; }
   .dashStat { min-width: 80px; }
   .dashValue { font-size: 0.95rem; }
   .headerSection h1 { font-size: 1.6rem; }
-  section.seeds { grid-template-columns: 1fr; }
+  section.seeds { grid-template-columns: 1fr !important; }
   .configSection { flex-direction: column; }
   .actionButtons { width: 100%; }
   .filterTabs { gap: 4px; }

@@ -28,6 +28,9 @@ function App() {
   const [showGuide, setShowGuide] = useState(() => {
     return !localStorage.getItem('guideShown');
   });
+  const [gridLayout, setGridLayout] = useState(() => {
+    return localStorage.getItem('gridLayout') || 'auto';
+  });
   const [filterMode, setFilterMode] = useState('all'); // 'all', 'priced', 'unpriced', 'hasAmount', 'trash'
   const seedsSectionRef = useRef(null);
 
@@ -188,6 +191,11 @@ function App() {
       formatSeedName(seed.id).toLowerCase().includes(trashModalSearch.toLowerCase())
     );
   }, [trashModalSearch, formatSeedName]);
+
+  const handleLayoutChange = (layout) => {
+    setGridLayout(layout);
+    localStorage.setItem('gridLayout', layout);
+  };
 
   const dismissGuide = () => {
     setShowGuide(false);
@@ -474,13 +482,28 @@ function App() {
               </button>
             ))}
           </div>
-          <div className="seedCounter">
-            Showing <strong>{filteredSeeds.length}</strong> of {seedsData.length} seeds
+          <div className="searchFooter">
+            <div className="seedCounter">
+              Showing <strong>{filteredSeeds.length}</strong> of {seedsData.length} seeds
+            </div>
+            <div className="layoutControls">
+              <span className="layoutLabel">Columns:</span>
+              {['auto', '1', '2', '3', '5'].map(lyt => (
+                <button
+                  key={lyt}
+                  className={`layoutBtn ${gridLayout === lyt ? 'active' : ''}`}
+                  onClick={() => handleLayoutChange(lyt)}
+                  title={`Set layout to ${lyt === 'auto' ? 'Auto' : lyt + ' columns'}`}
+                >
+                  {lyt === 'auto' ? 'Auto' : lyt}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Seeds Grid */}
-        <section className="seeds" id="seedsContainer">
+        <section className={`seeds layout-${gridLayout}`} id="seedsContainer">
           {filteredSeeds.length === 0 && (
             <div className="emptyState">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
