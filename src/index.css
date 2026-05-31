@@ -281,10 +281,18 @@ section.seeds {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 12px; width: 100%;
 }
-section.seeds.layout-1 { grid-template-columns: repeat(1, 1fr); }
-section.seeds.layout-2 { grid-template-columns: repeat(2, 1fr); }
-section.seeds.layout-3 { grid-template-columns: repeat(3, 1fr); }
-section.seeds.layout-5 { grid-template-columns: repeat(5, 1fr); }
+section.seeds.layout-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+section.seeds.layout-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+section.seeds.layout-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+section.seeds.layout-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+/* Fix squished layout for 5-columns */
+section.seeds.layout-5 .seedFields { flex-direction: column; gap: 6px; }
+section.seeds.layout-5 .seedField { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+section.seeds.layout-5 .seedField label { margin-bottom: 0; flex-shrink: 0; }
+section.seeds.layout-5 .seedField input { width: 60%; padding: 5px 8px; font-size: 0.85rem; }
+section.seeds.layout-5 .seedName { font-size: 0.75rem; }
+section.seeds.layout-5 div.seed { padding: 10px 12px; }
 .emptyState {
   grid-column: 1 / -1; text-align: center;
   padding: 60px 20px; color: var(--text-dim);
