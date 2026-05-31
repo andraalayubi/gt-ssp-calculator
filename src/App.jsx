@@ -314,7 +314,7 @@ function App() {
         {/* Header */}
         <div className="headerSection">
           <h1>
-            <img src="/images/pigfish.png" alt="PigFish" className="headerLogo" />
+            <img src="/images/ssp.png" alt="SSP" className="headerLogo" />
             SSP Profit Calculator
           </h1>
           <p className="subtitle">Calculate your Growtopia SSP pack profits instantly</p>
