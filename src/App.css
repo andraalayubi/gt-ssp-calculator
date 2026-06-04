@@ -1,1 +1,493 @@
-/* App.css — unused, all styles consolidated into index.css */
+/* App Navigation */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--sticky-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 16px;
+}
+
+.theme-toggle-btn {
+  position: absolute;
+  right: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text);
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--surface-hover);
+  transform: scale(1.05);
+  border-color: var(--border-hover);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 10px 20px;
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.nav-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+  border-color: rgba(99,102,241,0.5);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(99,102,241,0.2);
+}
+
+.nav-icon {
+  height: 24px;
+  width: auto;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ===== SURGERY PAGE HEADER ===== */
+.surg-page-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.surg-page-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #34d399, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.surg-page-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ===== SURGERY STICKY SUMMARY BAR ===== */
+.surg-sticky-bar {
+  position: sticky;
+  top: 57px;
+  z-index: 50;
+  background: var(--sticky-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  width: 100%;
+}
+.surg-sticky-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.surg-sticky-stat { text-align: center; flex: 1; min-width: 0; }
+.surg-sticky-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.surg-sticky-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.surg-sticky-value img { height: 18px; width: auto; }
+.surg-sticky-value.cost { color: var(--text-muted); }
+.surg-sticky-value.revenue { color: #60a5fa; }
+.surg-sticky-profit {
+  background: rgba(255,255,255,0.03);
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.surg-sticky-profit.positive .surg-sticky-value { color: var(--green); }
+.surg-sticky-profit.negative .surg-sticky-value { color: var(--red); }
+.surg-sticky-profit.positive { border-color: var(--green-border); background: var(--green-bg); }
+.surg-sticky-profit.negative { border-color: var(--red-border); background: var(--red-bg); }
+.surg-sticky-divider { width: 1px; height: 32px; background: var(--border); flex-shrink: 0; }
+
+section.surg-container {
+  max-width: 1100px;
+  width: 92%;
+  margin: 24px auto 60px;
+  align-items: stretch;
+}
+
+.surg-dashboard-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 900px) {
+  .surg-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.surg-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s;
+}
+
+.surg-card:hover {
+  border-color: var(--border-hover);
+}
+
+.surg-card-highlight {
+  background: linear-gradient(180deg, rgba(16,185,129,0.03) 0%, rgba(16,185,129,0) 100%), var(--surface);
+  border-color: rgba(16,185,129,0.2);
+}
+
+.surg-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.surg-icon {
+  font-size: 1.5rem;
+}
+
+.surg-card-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.surg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.surg-field label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.surg-field input {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.surg-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.surg-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+
+.surg-stat-box {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.surg-stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.surg-stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #60a5fa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.surg-stat-value.positive {
+  color: var(--green);
+}
+
+.surg-stat-value.negative {
+  color: var(--red);
+}
+
+.wl-icon-small {
+  height: 24px;
+  width: auto;
+}
+
+.surg-resale-section {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.surg-resale-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.surg-resale-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.surg-resale-header p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.surg-tools-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.surg-tools-grid.layout-auto { grid-template-columns: repeat(3, 1fr); }
+.surg-tools-grid.layout-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.surg-tools-grid.layout-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.surg-tools-grid.layout-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 900px) {
+  .surg-tools-grid,
+  .surg-tools-grid.layout-auto,
+  .surg-tools-grid.layout-3 { grid-template-columns: repeat(2, 1fr); }
+  .surg-tools-grid.layout-1 { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+  .surg-tools-grid,
+  .surg-tools-grid.layout-auto,
+  .surg-tools-grid.layout-2,
+  .surg-tools-grid.layout-3 { grid-template-columns: 1fr; }
+}
+
+.surg-tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.surg-tool-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.surg-tool-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.surg-tool-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  background: var(--input-bg);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.surg-tool-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.surg-tool-icon.fallback-icon {
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+
+.surg-tool-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.surg-tool-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.surg-tool-qty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.surg-tool-price-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.surg-tool-price-input label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.surg-input-wrapper {
+  display: flex;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.surg-input-wrapper:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+  background: rgba(255,255,255,0.03);
+}
+
+.surg-input-wrapper input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 0;
+}
+
+.surg-input-wrapper input:focus {
+  outline: none;
+}
+
+.surg-mode-select {
+  background: var(--surface-hover);
+  border: none;
+  border-left: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0 10px 0 12px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat, repeat;
+  background-position: right .5em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+  padding-right: 28px;
+  transition: color 0.2s;
+}
+
+.surg-mode-select:focus, .surg-mode-select:hover {
+  outline: none;
+  color: var(--text);
+}
+
+.surg-mode-select option {
+  background: var(--bg);
+  color: var(--text);
+}
