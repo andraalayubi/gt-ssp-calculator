@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SSPCalculator from './SSPCalculator';
 import SurgeryCalculator from './SurgeryCalculator';
 import CrimeCalculator from './CrimeCalculator';
+import StartopiaCalculator from './StartopiaCalculator';
 import './App.css'; // ensure App.css or index.css has navigation styles
 
 export default function App() {
@@ -47,6 +48,13 @@ export default function App() {
             <span className="nav-icon">🦹‍♂️</span>
             Crime Calculator
           </button>
+          <button 
+            className={`nav-btn ${activeTab === 'startopia' ? 'active' : ''}`}
+            onClick={() => handleTabChange('startopia')}
+          >
+            <span className="nav-icon">🚀</span>
+            Startopia Tools
+          </button>
         </div>
         <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
           {theme === 'dark' ? '☀️' : '🌙'}
@@ -57,6 +65,7 @@ export default function App() {
         {activeTab === 'ssp' && <SSPCalculator />}
         {activeTab === 'surgery' && <SurgeryCalculator />}
         {activeTab === 'crime' && <CrimeCalculator />}
+        {activeTab === 'startopia' && <StartopiaCalculator />}
       </main>
     </div>
   );
