@@ -330,11 +330,11 @@ section.surg-container {
 .surg-tools-grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-.surg-tools-grid.layout-auto { grid-template-columns: repeat(3, 1fr); }
+.surg-tools-grid.layout-auto { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .surg-tools-grid.layout-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 .surg-tools-grid.layout-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .surg-tools-grid.layout-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -342,14 +342,14 @@ section.surg-container {
 @media (max-width: 900px) {
   .surg-tools-grid,
   .surg-tools-grid.layout-auto,
-  .surg-tools-grid.layout-3 { grid-template-columns: repeat(2, 1fr); }
-  .surg-tools-grid.layout-1 { grid-template-columns: 1fr; }
+  .surg-tools-grid.layout-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .surg-tools-grid.layout-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 @media (max-width: 580px) {
   .surg-tools-grid,
   .surg-tools-grid.layout-auto,
   .surg-tools-grid.layout-2,
-  .surg-tools-grid.layout-3 { grid-template-columns: 1fr; }
+  .surg-tools-grid.layout-3 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 
 .surg-tool-card {
@@ -439,6 +439,7 @@ section.surg-container {
   border-radius: 6px;
   overflow: hidden;
   transition: all 0.2s;
+  min-width: 0;
 }
 
 .surg-input-wrapper:focus-within {
@@ -490,4 +491,20 @@ section.surg-container {
 .surg-mode-select option {
   background: var(--bg);
   color: var(--text);
+}
+
+/* Crime Category Styles */
+.crime-category-section {
+  margin-bottom: 32px;
+}
+
+.crime-category-title {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
