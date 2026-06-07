@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
   padding: 16px;
   background: var(--sticky-bg);
@@ -21,7 +22,9 @@
 
 .nav-tabs {
   display: flex;
-  gap: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .theme-toggle-btn {
