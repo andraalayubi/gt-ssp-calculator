@@ -1,4 +1,6 @@
 import { useState, useMemo } from 'react';
+import { exportStartopiaData } from './exportToExcel';
+import ExportButton from './ExportButton';
 
 const startopiaTools = [
   { id: 'AIBrain', name: 'AI Brain', qtyPerPack: 5 },
@@ -141,6 +143,9 @@ export default function StartopiaCalculator() {
             🚀 Startopia Pack Calculator
           </h1>
           <p>Calculate your Startopia pack profits — track every space item's resale value</p>
+          <div className="export-actions">
+            <ExportButton onClick={() => exportStartopiaData({ startopiaTools, packsCount, packCost, toolPrices, results })} />
+          </div>
         </div>
         <div className="surg-dashboard-grid">
         {/* Pack Purchase Info */}

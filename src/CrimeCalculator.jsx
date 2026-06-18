@@ -1,4 +1,6 @@
 import { useState, useMemo } from 'react';
+import { exportCrimeData } from './exportToExcel';
+import ExportButton from './ExportButton';
 
 const crimeCards = [
   { id: 'CrimeWave', name: 'Crime Wave', category: 'Villain' },
@@ -97,6 +99,9 @@ export default function CrimeCalculator() {
         <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.95rem' }}>
           Enter your card inventory and how many you sell per 1 WL. We'll calculate the total WL you'd earn if you sold everything.
         </p>
+        <div className="export-actions">
+          <ExportButton onClick={() => exportCrimeData({ crimeCards, cardData, totalRevenue })} />
+        </div>
       </div>
 
       {/* Profit Analysis single bar */}

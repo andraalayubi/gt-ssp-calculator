@@ -1,4 +1,6 @@
 import { useState, useMemo } from 'react';
+import { exportSurgeryData } from './exportToExcel';
+import ExportButton from './ExportButton';
 
 const surgeryTools = [
   { id: 'Surg-E', name: 'Surg-E', qtyPerPack: 5 },
@@ -140,6 +142,9 @@ export default function SurgeryCalculator() {
         <div className="surg-page-header">
           <h1>🩺 Surgery Pack Calculator</h1>
           <p>Calculate your MSurg pack profits — track every surgical tool's resale value</p>
+          <div className="export-actions">
+            <ExportButton onClick={() => exportSurgeryData({ surgeryTools, packsCount, packCost, toolPrices, results })} />
+          </div>
         </div>
         <div className="surg-dashboard-grid">
         {/* Pack Purchase Info */}

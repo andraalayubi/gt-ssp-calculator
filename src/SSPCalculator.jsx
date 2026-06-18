@@ -1,5 +1,7 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { seedsData } from './seedsData';
+import { exportSSPData } from './exportToExcel';
+import ExportButton from './ExportButton';
 
 const AdBanner = ({ slot }) => {
   useEffect(() => {
@@ -350,6 +352,7 @@ function SSPCalculator() {
           </h1>
           <p className="subtitle">Calculate your Growtopia SSP pack profits instantly</p>
           <div className="headerActions">
+            <ExportButton onClick={() => exportSSPData({ seedsData, seedValues, sspCost, results, trashSeeds, formatSeedName })} />
             <a href="https://youtu.be/yXHZ-oC-2cE" className="tutorialLink" target="_blank" rel="noreferrer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               Watch Tutorial
