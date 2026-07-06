@@ -10,6 +10,8 @@ const chemicalItems = [
   { id: 'YellowChemical', name: 'Yellow Chemical', category: 'Chemicals' },
   { id: 'MysteriousChemical', name: 'Mysterious Chemical', category: 'Crafted' },
   { id: 'FuelPack', name: 'Fuel Pack', category: 'Crafted' },
+  { id: 'BlockGlue', name: 'Block Glue', category: 'Crafted' },
+  { id: 'Forcefield', name: 'Forcefield', category: 'Crafted' },
 ];
 
 export default function ChemicalCalculator() {
@@ -48,8 +50,11 @@ export default function ChemicalCalculator() {
     const valBlue = getValue('BlueChemical');
     const valPink = getValue('PinkChemical');
     const valGreen = getValue('GreenChemical');
+    const valRed = getValue('RedChemical');
     const valMysterious = getValue('MysteriousChemical');
     const valFuel = getValue('FuelPack');
+    const valBlockGlue = getValue('BlockGlue');
+    const valForcefield = getValue('Forcefield');
 
     const routes = [];
 
@@ -77,6 +82,41 @@ export default function ChemicalCalculator() {
       routes.push({
         name: 'Fuel Pack (5 pcs)',
         rawDesc: '10 Green, 12 Blue, 20 Yellow, 5 Pink',
+        rawValue,
+        craftedValue,
+        profit,
+        isCraftBetter: profit > 0,
+        margin: rawValue > 0 ? (profit / rawValue) * 100 : 0
+      });
+    }
+
+    // Helper for Mysterious Chemical value (market price or raw materials craft cost)
+    const mysteriousCost = valMysterious || (valYellow && valBlue && valPink ? ((20 * valYellow) + (10 * valBlue) + (5 * valPink)) : 0);
+
+    // Analisa 3: Block Glue (10 pcs)
+    if (mysteriousCost && valRed && valPink && valBlockGlue) {
+      const rawValue = (1 * mysteriousCost) + (1 * valRed) + (1 * valPink);
+      const craftedValue = 10 * valBlockGlue;
+      const profit = craftedValue - rawValue;
+      routes.push({
+        name: 'Block Glue (10 pcs)',
+        rawDesc: valMysterious ? '1 Mysterious, 1 Red, 1 Pink' : '20 Yellow, 10 Blue, 6 Pink, 1 Red',
+        rawValue,
+        craftedValue,
+        profit,
+        isCraftBetter: profit > 0,
+        margin: rawValue > 0 ? (profit / rawValue) * 100 : 0
+      });
+    }
+
+    // Analisa 4: Forcefield (1 pcs)
+    if (mysteriousCost && valGreen && valRed && valForcefield) {
+      const rawValue = (1 * mysteriousCost) + (20 * valGreen) + (10 * valRed);
+      const craftedValue = 1 * valForcefield;
+      const profit = craftedValue - rawValue;
+      routes.push({
+        name: 'Forcefield (1 pcs)',
+        rawDesc: valMysterious ? '1 Mysterious, 20 Green, 10 Red' : '20 Green, 10 Red, 20 Yellow, 10 Blue, 5 Pink',
         rawValue,
         craftedValue,
         profit,
@@ -131,30 +171,95 @@ export default function ChemicalCalculator() {
       {/* Recommendations / Best Routes */}
       <div className="surg-card" style={{ marginBottom: '32px', padding: '24px', border: '1px solid var(--accent)', background: 'linear-gradient(180deg, rgba(99,102,241,0.05) 0%, rgba(99,102,241,0) 100%), var(--surface)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-          <span style={{ fontSize: '1.4rem' }}>⚖️</span>
-          <h2 style={{ fontSize: '1.2rem', fontWeight: '800', margin: 0, color: 'var(--text)' }}>Analisa: Jual Mentah vs Crafting</h2>
+          <span style={{ fontSize: '1.4rem' }}>🏆</span>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: '800', margin: 0, color: 'var(--text)' }}>Peringkat & Analisa Penjualan Terbaik</h2>
         </div>
         
         {results.length === 0 ? (
           <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontStyle: 'italic', padding: '10px 0' }}>
-            Silakan masukkan harga barang-barang (Chemical & Fuel) di bawah untuk melihat perbandingan profitnya! (Pastikan setidaknya ada harga untuk bahan baku dan hasil craft).
+            Silakan masukkan harga barang-barang (Chemical & Fuel) di bawah untuk melihat perbandingan profit dan peringkatnya!
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {/* Leaderboard Summary Banner */}
+            <div style={{
+              background: 'rgba(99,102,241,0.08)',
+              border: '1px solid rgba(99,102,241,0.25)',
+              borderRadius: '14px',
+              padding: '16px 20px'
+            }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: '#818cf8', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                📊 Ringkasan Peringkat Keuntungan Penjualan
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '10px' }}>
+                {results.map((route, idx) => {
+                  const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '🎖️';
+                  const bestActionDesc = route.isCraftBetter 
+                    ? `Craft & Jual ${route.name}`
+                    : `Jual Bahan Mentah`;
+                  return (
+                    <div key={idx} style={{
+                      background: idx === 0 ? 'rgba(16,185,129,0.12)' : 'var(--input-bg)',
+                      border: idx === 0 ? '1px solid var(--green-border)' : '1px solid var(--border)',
+                      borderRadius: '10px',
+                      padding: '10px 14px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px'
+                    }}>
+                      <span style={{ fontSize: '1.4rem' }}>{medal}</span>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: '0.7rem', fontWeight: '800', color: idx === 0 ? 'var(--green)' : 'var(--text-muted)', textTransform: 'uppercase' }}>
+                          Peringkat #{idx + 1} {idx === 0 ? '(Rekomendasi Utama)' : ''}
+                        </div>
+                        <div style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {bestActionDesc}
+                        </div>
+                        <div style={{ fontSize: '0.72rem', color: route.profit >= 0 ? 'var(--green)' : 'var(--red)', fontWeight: '700' }}>
+                          {route.isCraftBetter ? `Profit Craft: +${route.profit.toFixed(2)} WL` : `Jual Mentah: ${route.rawValue.toFixed(2)} WL`}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Detailed Route Cards */}
             {results.map((route, index) => (
               <div key={index} style={{ 
-                padding: '16px', 
-                borderRadius: '12px', 
-                background: 'var(--input-bg)', 
-                border: '1px solid var(--border)',
+                padding: '20px', 
+                borderRadius: '14px', 
+                background: index === 0 ? 'rgba(16,185,129,0.03)' : 'var(--input-bg)', 
+                border: index === 0 ? '1px solid var(--green-border)' : '1px solid var(--border)',
                 position: 'relative'
               }}>
                 <div style={{ position: 'absolute', top: '-12px', right: '16px', background: route.isCraftBetter ? 'var(--green)' : 'var(--red)', color: '#fff', padding: '4px 12px', borderRadius: '999px', fontSize: '0.75rem', fontWeight: '800' }}>
                   {route.isCraftBetter ? '✨ LEBIH UNTUNG DI-CRAFT' : '📦 LEBIH UNTUNG JUAL MENTAH'}
                 </div>
                 
-                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text)', marginBottom: '4px' }}>Target: {route.name}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px' }}>Bahan Mentah: {route.rawDesc}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+                  <span style={{
+                    background: index === 0 ? 'linear-gradient(135deg, #f59e0b, #d97706)' : index === 1 ? 'linear-gradient(135deg, #94a3b8, #64748b)' : index === 2 ? 'linear-gradient(135deg, #b45309, #78350f)' : 'var(--surface-hover)',
+                    color: '#fff',
+                    fontSize: '0.75rem',
+                    fontWeight: '800',
+                    padding: '3px 10px',
+                    borderRadius: '999px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}>
+                    {index === 0 ? '🥇 Peringkat #1 (Paling Untung)' : index === 1 ? '🥈 Peringkat #2' : index === 2 ? '🥉 Peringkat #3' : `🎖️ Peringkat #${index + 1}`}
+                  </span>
+                  <div style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--text)' }}>
+                    Target: {route.name}
+                  </div>
+                </div>
+
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '14px' }}>
+                  Bahan Mentah: <strong style={{ color: 'var(--text)' }}>{route.rawDesc}</strong> — Opsi Terbaik: <strong style={{ color: route.isCraftBetter ? 'var(--green)' : '#60a5fa' }}>{route.isCraftBetter ? `Craft & Jual ${route.name}` : `Jual Bahan Mentah`}</strong>
+                </div>
                 
                 <div className="surg-stats-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
                   <div className="surg-stat-box" style={{ padding: '12px', border: !route.isCraftBetter ? '1px solid var(--red-border)' : '1px solid var(--border)', background: !route.isCraftBetter ? 'var(--red-bg)' : 'var(--input-bg)' }}>
