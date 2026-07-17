@@ -78,14 +78,14 @@ function SSPCalculator() {
   });
 
   // Roll 1 seed logic:
-  // Group 1 (Common seeds: L2-L85, index 0..83) weight = 2.5
+  // Group 1 (Common seeds: L2-L85, index 0..83) weight = 3.0
   // Group 2 (Rare seeds: L86-L150, index 84..148) weight = 1.0
   const rollOneSeed = useCallback(() => {
     const commonCount = 84;
-    const commonWeight = 2.5;
+    const commonWeight = 3.0;
     const rareWeight = 1.0;
     const rareCount = seedsData.length - commonCount; // 65
-    const totalWeight = (commonCount * commonWeight) + (rareCount * rareWeight); // 275
+    const totalWeight = (commonCount * commonWeight) + (rareCount * rareWeight); // 317
 
     let rand = Math.random() * totalWeight;
     for (let i = 0; i < seedsData.length; i++) {
@@ -587,7 +587,7 @@ function SSPCalculator() {
                     Simulator Buka Pack (Randomize Stock)
                   </h2>
                   <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                    Setiap 1 SSP Pack menghasilkan <strong>5 seed</strong>. Seed Common (L2-L85) berpeluang <strong>2.5×</strong> lebih sering dibandingkan Seed Rare (L86-L150).
+                    Setiap 1 SSP Pack menghasilkan <strong>5 seed</strong>. Seed Common (L2-L85) berpeluang <strong>3×</strong> lebih sering dibandingkan Seed Rare (L86-L150).
                   </p>
                 </div>
               </div>
@@ -693,7 +693,7 @@ function SSPCalculator() {
                         color: rolledSeed.group === 'common' ? 'var(--green)' : '#c084fc',
                         border: rolledSeed.group === 'common' ? '1px solid var(--green-border)' : '1px solid rgba(168,85,247,0.3)'
                       }}>
-                        {rolledSeed.group === 'common' ? '🟢 Common (2.5x)' : '💜 Rare (1.0x)'}
+                        {rolledSeed.group === 'common' ? '🟢 Common (3x)' : '💜 Rare (1.0x)'}
                       </span>
                     </div>
                   ))}
@@ -719,7 +719,7 @@ function SSPCalculator() {
               </div>
 
               <div className="surg-stat-box" style={{ padding: '16px', background: 'var(--surface)', border: '1px solid var(--green-border)', borderRadius: '12px' }}>
-                <span className="dashLabel" style={{ color: 'var(--green)' }}>Common Seeds (2.5x)</span>
+                <span className="dashLabel" style={{ color: 'var(--green)' }}>Common Seeds (3x)</span>
                 <div className="dashValue" style={{ fontSize: '1.2rem', color: 'var(--green)' }}>
                   <span>{simStats.commonCount} ({simStats.commonPercent}%)</span>
                 </div>
@@ -753,7 +753,7 @@ function SSPCalculator() {
                   {[
                     { key: 'all', label: 'Semua Seed', count: seedsData.length },
                     { key: 'obtained', label: 'Sudah Didapat (>0)', count: Object.keys(simInventory).filter(k => simInventory[k] > 0).length },
-                    { key: 'common', label: '🟢 Common (2.5x)', count: 84 },
+                    { key: 'common', label: '🟢 Common (3x)', count: 84 },
                     { key: 'rare', label: '💜 Rare (1.0x)', count: 65 },
                   ].map(tab => (
                     <button
@@ -817,7 +817,7 @@ function SSPCalculator() {
                           {formatSeedName(seed.id)}
                         </div>
                         <div style={{ fontSize: '0.65rem', color: seed.group === 'common' ? 'var(--green)' : '#c084fc', fontWeight: '700' }}>
-                          {seed.group === 'common' ? '🟢 Common (2.5x)' : '💜 Rare (1.0x)'}
+                          {seed.group === 'common' ? '🟢 Common (3x)' : '💜 Rare (1.0x)'}
                         </div>
                       </div>
                     </div>
